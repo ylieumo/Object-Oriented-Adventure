@@ -153,6 +153,34 @@ class Character {
 
 // Part 4: Class Uniforms.
 
+// Add a static MAX_HEALTH property to the Character class, equal to 100.
+
+class Character {
+
+    static MAX_HEALTH = 100;
+  
+    constructor (name) {
+      this.name = name;
+    }
+  
+  }
+  console.log(Character.MAX_HEALTH);
+  
+  // Add a static ROLES array to the Adventurer class, with the values “Fighter,” “Healer,” and “Wizard
+  
+  class Adventurer extends Character {
+  
+    static ROLES = ["fighter", "healer", "wizard"];
+  
+    constructor (name, role) {
+      super(name);
+      this.role = role;
+      if (!Adventurer.isValidRole(role)) {
+        throw new Error(`Invalid role`);  }
+    
+  }
+  }
+  console.log( Adventurer.ROLES);
 
 // Part 5: Gather your Party.
 
