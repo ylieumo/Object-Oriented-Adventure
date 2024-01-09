@@ -184,8 +184,106 @@ class Character {
 
 // Part 5: Gather your Party.
 
+class AdventurerFactory {  
+    constructor (role) {
+      this.role = role;
+      this.adventurers = [];
+    }
+    generate (name) {
+      const newAdventurer = new Adventurer(name, this.role);
+      this.adventurers.push(newAdventurer);
+    }
+    findByIndex (index) {
+      return this.adventurers[index];
+    }
+    findByName (name) {
+      return this.adventurers.find((a) => a.name === name);
+    }
+  }
+  
+  const healers = new AdventurerFactory("Healer");
+  const robin = healers.generate("Robin");
 
 // Part 6: Developing Skills.
 
+class Character {
+    constructor(name, health = 100) {
+      this.name = name;
+      this.health = health;
+    }
+  
+  }
+  class Adventurer extends Character {
+    constructor(name, role) {
+      super(name);
+      this.role = role;
+    }
+  
+    }
+    duel(opponent) {
+      while (this.health > 50 && opponent.health > 50) {
+        const roll1 = this.roll();
+        const roll2 = opponent.roll();
+  
+        if (roll1 > roll2) {
+          opponent.health -= 1;
+        } else {
+          this.health -= 1;
+        }
+  
+      }
+    }
 
 // Part 7: Adventure Forth.
+
+class Character {
+    constructor(name) {
+      this.name = name;
+      this.inventory = [];
+    }
+  
+    addToInventory(item) {
+      this.inventory.push(item);
+      console.log(`${this.name} added ${item} to their inventory.`);
+    }
+  }
+  
+  class Adventurer extends Character {
+    constructor(name, role) {
+      super(name);
+      this.role = role;
+    }
+  
+    explore() {
+      console.log(`${this.name} the ${this.role} is exploring.`);
+    }
+  }
+  
+  class Companion extends Character {
+    constructor(name, type) {
+      super(name);
+      this.type = type;
+    }
+  
+    followCompanion() {
+      console.log(`${this.name} the ${this.type} is following his companion.`);
+    }
+  }
+  
+  // Create adventurers and companions
+  const adventurer1 = new Adventurer("Alice", "Wizard");
+  const adventurer2 = new Adventurer("Bob", "Fighter");
+  
+  const companion1 = new Companion("Fluffy", "Wolf");
+  const companion2 = new Companion("Sparky", "Fairy");
+  
+  // Interact
+  adventurer1.explore();
+  adventurer1.addToInventory("Magic Staff");
+  
+  adventurer2.explore();
+  adventurer2.addToInventory("Sword");
+  
+  companion1.followCompanion();
+  companion2.followCompanion();
+  
